@@ -20,8 +20,8 @@
       description: Install homebrew
       command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     -
-      description: # Add homebrew to path
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+      description: Add homebrew to path
+      command: eval "$(/opt/homebrew/bin/brew shellenv)"
     - source ~/.zprofile # refresh terminal
     - brew install --cask --force google-chrome # --force to make command idempotent
     - brew install --cask --force wezterm
