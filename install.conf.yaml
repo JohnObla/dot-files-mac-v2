@@ -22,6 +22,7 @@
     -
       description: Add homebrew to path
       command: eval "$(/opt/homebrew/bin/brew shellenv)"
+    - brew install --cask --force google-chrome
     - brew install --cask --force wezterm # force to make command idempotent
     - brew install fish
     - brew install neovim
