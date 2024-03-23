@@ -15,19 +15,15 @@
     ~/.zprofile:
     ~/.zshrc:
 
+- cask: 
+    - google-chrome
+    - wezterm
+- brew:
+    - fish
+    - neovim
+    - n
+
 - shell:
-    -
-      description: Install homebrew
-      command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    -
-      description: Add homebrew to path
-      command: eval "$(/opt/homebrew/bin/brew shellenv)"
-    - source ~/.zprofile # refresh terminal
-    - brew install --cask --force google-chrome # --force to make command idempotent
-    - brew install --cask --force wezterm
-    - brew install fish
-    - brew install neovim
-    - brew install n
     - n lts # node lts install
     - npm install --global all-the-package-names
     - npm install --global yarn
