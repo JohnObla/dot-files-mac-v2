@@ -1,0 +1,32 @@
+- defaults:
+    link:
+      relink: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
+
+- clean: ["~"]
+
+- link:
+    ~/.config:
+    ~/.gitconfig:
+    # z profile is needed to find brew in path
+    ~/.zprofile:
+    ~/.zshrc:
+
+- shell:
+    -
+      description: Install homebrew
+      command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    -
+      description: Add homebrew to path
+      command: eval "$(/opt/homebrew/bin/brew shellenv)"
+    - brew install --cask --force wezterm # force to make command idempotent
+    - brew install fish
+    - brew install neovim
+    - brew install n
+    - n lts # installs long term node version
+    - npm install --global all-the-package-names
+    - npm install --global yarn
+    - npm install --global diff-so-fancy
