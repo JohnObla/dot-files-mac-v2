@@ -11,8 +11,6 @@
 - link:
     ~/.config:
     ~/.gitconfig:
-    # z profile is needed to find brew in path
-    ~/.zprofile:
     ~/.zshrc:
 
 - cask: 
