@@ -1,5 +1,6 @@
-# install node without needing permissions
+# create n location and add to path
 export N_PREFIX=$HOME/n
-
-# add n location to path
 path+=("$HOME/n/bin")
+
+# add brew to path
+path+=("/opt/homebrew/bin")
