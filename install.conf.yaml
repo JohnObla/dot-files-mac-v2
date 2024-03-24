@@ -14,6 +14,7 @@
     # z profile is needed to find brew in path
     ~/.zprofile:
     ~/.zshrc:
+    ~/.wezterm.lua:
 
 - shell:
     -
@@ -31,4 +32,6 @@
     - npm install --global all-the-package-names
     - npm install --global yarn
     - npm install --global diff-so-fancy
+    - brew install gh
+    - gh auth login --git-protocol=ssh --web
 
