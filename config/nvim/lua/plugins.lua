@@ -10,6 +10,10 @@ return {
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make'
-  }
+  },
+  {
+    'rose-pine/neovim', name = 'rose-pine'
+  },
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
 }
 
