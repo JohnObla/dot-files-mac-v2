@@ -27,6 +27,8 @@
     - brew install --cask --force wezterm
     - brew install fish
     - brew install neovim
+    - brew install ripgrep
+    - brew install fd
     - brew install n
     - n lts # node lts install
     - npm install --global all-the-package-names
