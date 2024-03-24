@@ -1,7 +1,12 @@
 # Dot Files
 ## Install on Mac
+### Clone Repo
+`git clone https://github.com/JohnObla/dot-files-mac-v2.git ~/.dotfiles`
+
+### Install `.dotfiles`
 ```
-git clone https://github.com/JohnObla/dot-files-mac-v2.git ~/.dotfiles
-cd ~/.dotfiles
-~/.dotfiles/install
+cd ~/.dotfiles \
+&& ~/.dotfiles/install --except shell \
+&& source ~/.zshrc && echo "Sourcing ~/.zshrc" \
+&& ~/.dotfiles/install --only shell
 ```
