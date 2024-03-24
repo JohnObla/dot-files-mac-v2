@@ -34,6 +34,7 @@
     - npm install --global all-the-package-names
     - npm install --global yarn
     - npm install --global diff-so-fancy
+    - npm install --global neovim
     - brew install gh
     - gh auth login --git-protocol=ssh --web
 
