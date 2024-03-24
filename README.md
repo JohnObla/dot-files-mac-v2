@@ -1,7 +1,7 @@
 # Dot Files
 ## Install on Mac
 ### Clone Repo
-`git clone https://github.com/JohnObla/dot-files-mac-v2.git ~/.dotfiles`
+`git clone git@github.com:JohnObla/dot-files-mac-v2.git ~/.dotfiles`
 
 ### Install `.dotfiles`
 ```
