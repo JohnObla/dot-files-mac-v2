@@ -9,12 +9,25 @@ return {
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
   {"rose-pine/neovim", name = "rose-pine"},
   -- lsp via lsp zero
-  {'williamboman/mason.nvim'},
-  {'williamboman/mason-lspconfig.nvim'},
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
-  {"neovim/nvim-lspconfig"},
-  {"hrsh7th/cmp-nvim-lsp"},
-  {"hrsh7th/nvim-cmp"},
-  {"L3MON4D3/LuaSnip"},
+  "neovim/nvim-lspconfig",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/nvim-cmp",
+  "L3MON4D3/LuaSnip",
+  "tpope/vim-surround",
+  "tpope/vim-repeat",
+  "jiangmiao/auto-pairs",
+  {
+    "tversteeg/registers.nvim",
+    cmd = "Registers",
+    config = true,
+    keys = {
+      { "\"",    mode = { "n", "v" } },
+      { "<C-R>", mode = "i" }
+    },
+    name = "registers",
+  },
 }
 
