@@ -29,5 +29,22 @@ return {
     },
     name = "registers",
   },
+  "tpope/vim-commentary",
+  "simeji/winresizer",
+  "suy/vim-context-commentstring",
+  "AndrewRadev/splitjoin.vim",
+  "moll/vim-bbye",
+  "tpope/vim-fugitive",
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
 }
 

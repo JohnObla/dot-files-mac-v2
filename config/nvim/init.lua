@@ -1,3 +1,6 @@
+-- general
+require("general")
+
 -- key bindings
 require("keys")
 
