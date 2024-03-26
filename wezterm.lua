@@ -17,11 +17,35 @@ config.keys = {
     },
   },
   {
-    key = 'w',
-    mods = 'LEADER|CTRL',
-    action = act.ActivateKeyTable {
-      name = 'mutate_pane'
-    },
+    key = 'v',
+    mods = 'LEADER',
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 's',
+    mods = 'LEADER',
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+
+  {
+    key = 'h',
+    mods = 'LEADER',
+    action = act.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'l',
+    mods = 'LEADER',
+    action = act.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'k',
+    mods = 'LEADER',
+    action = act.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'j',
+    mods = 'LEADER',
+    action = act.ActivatePaneDirection 'Down',
   },
   {
     key = 'q',
@@ -39,15 +63,6 @@ config.key_tables = {
     { key = 'Escape', action = 'PopKeyTable' },
   },
   mutate_pane = {
-    { key = 'v', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-    { key = 's', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-
-    { key = 'h', action = act.ActivatePaneDirection 'Left' },
-    { key = 'l', action = act.ActivatePaneDirection 'Right' },
-    { key = 'k', action = act.ActivatePaneDirection 'Up' },
-    { key = 'j', action = act.ActivatePaneDirection 'Down' },
-
-    { key = 'Escape', action = 'PopKeyTable' },
   },
 }
 
