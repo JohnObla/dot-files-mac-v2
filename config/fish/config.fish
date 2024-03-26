@@ -10,3 +10,6 @@ fish_add_path /opt/homebrew/bin
 # create n location and add to path
 set -gx N_PREFIX $HOME/n
 fish_add_path $N_PREFIX/bin
+
+# set fish as default shell
+set -gx SHELL /opt/homebrew/bin/fish

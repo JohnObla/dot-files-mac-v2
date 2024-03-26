@@ -6,7 +6,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
-config.leader = { key = 'p', mods = 'CTRL' }
+config.leader = { key = ' ', mods = 'CTRL' }
 config.keys = {
   {
     key = 'e',
