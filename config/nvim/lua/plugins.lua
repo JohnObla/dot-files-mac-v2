@@ -11,7 +11,7 @@ return {
   -- rich syntax highlighting
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
   -- colour scheme that's regularly updated with neovim
-  {"rose-pine/neovim", name = "rose-pine"},
+  "rebelot/kanagawa.nvim",
   -- mason allows lsp config within neovim itself
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
@@ -64,5 +64,7 @@ return {
       require("nvim-tree").setup {}
     end,
   },
+  -- terminal inside neovim
+  {"rebelot/terminal.nvim", name = "terminal"},
 }
 
