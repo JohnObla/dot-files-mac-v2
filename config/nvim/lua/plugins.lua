@@ -66,5 +66,10 @@ return {
   },
   -- terminal inside neovim
   {"rebelot/terminal.nvim", name = "terminal"},
+  -- status line at bottom of window
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
 }
 
