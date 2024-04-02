@@ -22,4 +22,4 @@ require("nvim-tree").setup({
 })
 
 -- map toggling tree
-vim.keymap.set("n", "<leader>e", ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>e", ':NvimTreeFindFileToggle<CR>', {noremap = true, silent = true})
