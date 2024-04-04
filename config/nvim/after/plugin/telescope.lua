@@ -1,22 +1,5 @@
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim?tab=readme-ov-file#telescope-setup-and-configuration
-require('telescope').setup {
-  defaults = {
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '--hidden',
-      '--ignore',
-      '--no-ignore-vcs',
-      '--glob=!node_modules/**',
-      '--glob=!.git/**',
-    },
-  }
-}
+require('telescope').setup {}
 require('telescope').load_extension('fzf')
 
 -- https://www.youtube.com/watch?v=w7i4amO_zaE
@@ -39,5 +22,8 @@ vim.keymap.set('n', '<leader>fr', function()
 end)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fr', require('telescope.builtin').lsp_references, { noremap = true, silent = true })
-
+vim.keymap.set('n', '<leader>fe', require('telescope.builtin').lsp_references, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>fdf', function () builtin.find_files({find_command = find_command, cwd = '~/.dotfiles'}) end, {})
+vim.keymap.set('n', '<leader>fdr', function()
+  builtin.grep_string({ search = vim.fn.input("Grep > "), cwd =  '~/.dotfiles'});
+end)

@@ -10,7 +10,7 @@ config.leader = { key = ' ', mods = 'CTRL' }
 config.keys = {
   {
     key = 'e',
-    mods = 'LEADER|CTRL',
+    mods = 'LEADER',
     action = act.ActivateKeyTable {
       name = 'resize_pane',
       one_shot = false

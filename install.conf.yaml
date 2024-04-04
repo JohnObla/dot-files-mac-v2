@@ -36,5 +36,6 @@
     - npm install --global diff-so-fancy
     - npm install --global neovim
     - brew install gh
+    - brew install brew install clojure/tools/clojure
     - gh auth login --git-protocol=ssh --web
 
