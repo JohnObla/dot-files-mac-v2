@@ -13,3 +13,6 @@ fish_add_path $N_PREFIX/bin
 
 # set fish as default shell
 set -gx SHELL /opt/homebrew/bin/fish
+
+# set config home
+set -gx XDG_CONFIG_HOME $HOME/.config

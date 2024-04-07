@@ -1,5 +1,4 @@
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim?tab=readme-ov-file#telescope-setup-and-configuration
-require('telescope').setup {}
 require('telescope').load_extension('fzf')
 
 -- https://www.youtube.com/watch?v=w7i4amO_zaE
