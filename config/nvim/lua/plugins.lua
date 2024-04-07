@@ -4,17 +4,24 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.6",
-    dependencies = {"nvim-lua/plenary.nvim"},
-    config = true
+    config = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function ()
+          require('telescope').load_extension('fzf')
+        end
+      },
+    },
   },
-  -- better fuzzy finder for telescope
-  {"nvim-telescope/telescope-fzf-native.nvim",build = "make"},
   -- rich syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = true,
-    opts = {
+       opts = {
       -- A list of parser names, or "all" (the listed parsers below should always be installed)
       ensure_installed = { "javascript", "typescript", "clojure", "c", "lua", "vim", "vimdoc", "query" },
 
@@ -42,10 +49,11 @@ return {
   -- colour scheme that's regularly updated with neovim
   {
     "rebelot/kanagawa.nvim",
-    config = true,
-    opts = {
-      theme = "wave"
-    }
+    lazy = false,
+    priority = 1000,
+    config = function ()
+      vim.cmd("colorscheme kanagawa-wave")
+    end,
   },
   -- mason allows lsp config within neovim itself
   "williamboman/mason.nvim",
@@ -80,7 +88,13 @@ return {
   -- allows comments in nested languages
   "suy/vim-context-commentstring",
   -- ui for resizing windows in neovim
-  "simeji/winresizer",
+  {
+    "simeji/winresizer",
+    cmd = "WinResizerStartResize",
+    keys = {
+      { "<C-e>", desc = "Open WinResizer" }
+    }
+  },
   -- converting single line statement to multi-line and vice versa
   "AndrewRadev/splitjoin.vim",
   -- better management of closing buffers and windows
@@ -140,7 +154,14 @@ return {
       git = {
         ignore = false,
       }
-    }
+    },
+    init = function ()
+      -- disable netrw at the very start of init.lua
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+      -- enable 24-bit colour
+      vim.opt.termguicolors = true
+    end,
   },
   -- terminal inside neovim
   {
@@ -161,7 +182,33 @@ return {
     config = true,
   },
   -- clojure editing inside of neovim
-  "Olical/conjure",
+  {
+    "Olical/conjure",
+    ft = { "clojure", "fennel" },
+    -- [Optional] cmp-conjure for cmp
+    dependencies = {
+        {
+          "PaterJason/cmp-conjure",
+          config = function()
+            local cmp = require("cmp")
+            local config = cmp.get_config()
+            table.insert(config.sources, {
+              name = "buffer",
+              option = {
+                sources = {
+                  { name = "conjure" },
+                },
+              },
+            })
+            cmp.setup(config)
+          end,
+        },
+    },
+    config = function(_, opts)
+        require("conjure.main").main()
+        require("conjure.mapping")["on-filetype"]()
+    end,
+  },
   -- show git blame commits
   {
     "f-person/git-blame.nvim",
@@ -187,4 +234,6 @@ return {
   -- s-expression manipulation
   "guns/vim-sexp"
 }
+
+
 

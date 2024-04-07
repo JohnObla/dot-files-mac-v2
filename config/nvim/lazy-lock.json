@@ -1,6 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "be7be2ca7f55bb881a7ffc16b2efa5af034ab06b" },
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
+  "cmp-conjure": { "branch": "master", "commit": "8c9a88efedc0e5bf3165baa6af8a407afe29daf6" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
   "conjure": { "branch": "master", "commit": "dfb9f75010a181c090ab905b2a2b4180aea20f15" },
   "git-blame.nvim": { "branch": "master", "commit": "a0282d05adbee80aaf4e2ff35b81b52940b67bed" },
