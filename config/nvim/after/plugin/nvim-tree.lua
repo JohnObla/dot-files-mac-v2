@@ -16,10 +16,10 @@ require("nvim-tree").setup({
   renderer = {
     group_empty = true,
   },
-  filters = {
-    dotfiles = true,
-  },
+  git = {
+    ignore = false,
+  }
 })
 
 -- map toggling tree
-vim.keymap.set("n", "<leader>e", ':NvimTreeFindFileToggle<CR>', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>e", ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true, desc = "Toggle file explorer" })

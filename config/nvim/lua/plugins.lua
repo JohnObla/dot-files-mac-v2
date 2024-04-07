@@ -19,7 +19,7 @@ return {
   {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
   -- lsp config allows type checking, errors, etc with any language
   "neovim/nvim-lspconfig",
-  -- the 3 plugins below all do snippets
+  -- the plugins below all do snippets
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
   "L3MON4D3/LuaSnip",
@@ -35,8 +35,8 @@ return {
     cmd = "Registers",
     config = true,
     keys = {
-      { "\"",    mode = { "n", "v" } },
-      { "<C-R>", mode = "i" }
+      { "\"",    mode = { "n", "v" }, desc = "Open register menu" },
+      { "<C-R>", mode = "i", desc = "Open register menu" }
     },
     name = "registers",
   },
@@ -65,53 +65,21 @@ return {
     end,
   },
   -- terminal inside neovim
-  {"rebelot/terminal.nvim", name = "terminal"},
+  { 'akinsho/toggleterm.nvim', version = "*" },
   -- status line at bottom of window
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" }
   },
   -- clojure editing inside of neovim
-  {
-    "Olical/conjure",
-    ft = { "clojure", "fennel", "python" }, -- etc
-    -- [Optional] cmp-conjure for cmp
-    dependencies = {
-        {
-            "PaterJason/cmp-conjure",
-            config = function()
-                local cmp = require("cmp")
-                local config = cmp.get_config()
-                table.insert(config.sources, {
-                    name = "buffer",
-                    option = {
-                        sources = {
-                            { name = "conjure" },
-                        },
-                    },
-                })
-                cmp.setup(config)
-            end,
-        },
-    },
-    config = function(_, opts)
-        require("conjure.main").main()
-        require("conjure.mapping")["on-filetype"]()
-    end,
-    init = function()
-	       -- Set configuration options here
-        vim.g["conjure#debug"] = true
-        -- Disable the documentation mapping
-        vim.g["conjure#mapping#doc_word"] = false
-
-        -- Rebind it from K to <prefix>gk
-        vim.g["conjure#mapping#doc_word"] = "gk"
-
-        -- Reset it to the default unprefixed K (note the special table wrapped syntax)
-        vim.g["conjure#mapping#doc_word"] = {"K"}
-
-    end,
-  },
+  "Olical/conjure",
+  -- show git blame commits
   "f-person/git-blame.nvim",
+  -- easier way to navigate inside files
+  "easymotion/vim-easymotion",
+  -- show diff changes using colored bars
+  "lewis6991/gitsigns.nvim",
+  -- show all shortcuts
+  "folke/which-key.nvim",
 }
 

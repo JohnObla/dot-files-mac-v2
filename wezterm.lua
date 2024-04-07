@@ -1,77 +1,16 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
-local act = wezterm.action
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
-
--- This is where you actually apply your config choices
-config.leader = { key = ' ', mods = 'CTRL' }
-config.keys = {
-  {
-    key = 'e',
-    mods = 'LEADER',
-    action = act.ActivateKeyTable {
-      name = 'resize_pane',
-      one_shot = false
-    },
-  },
-  {
-    key = 'v',
-    mods = 'LEADER',
-    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
-  },
-  {
-    key = 's',
-    mods = 'LEADER',
-    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
-  },
-
-  {
-    key = 'h',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Left',
-  },
-  {
-    key = 'l',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Right',
-  },
-  {
-    key = 'k',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Up',
-  },
-  {
-    key = 'j',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Down',
-  },
-  {
-    key = 'q',
-    mods = 'LEADER',
-    action = act.CloseCurrentPane { confirm = true }
-  }
-}
-config.key_tables = {
-  resize_pane = {
-    { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
-    { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
-    { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
-    { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
-    -- Cancel the mode by pressing escape
-    { key = 'Escape', action = 'PopKeyTable' },
-  },
-  mutate_pane = {
-  },
-}
-
--- For example, changing the color scheme:
--- config.color_scheme = 'AdventureTime'
+-- choose fish as default shell, with startup fish prompt
 config.default_prog = { '/opt/homebrew/bin/fish', '--login' }
+-- choose font with ligatures
 config.font = wezterm.font 'JetBrains Mono'
-
-
+-- remove black bar from bottom of screen
+config.window_padding = {
+  bottom = 0,
+}
 
 -- and finally, return the configuration to wezterm
 return config

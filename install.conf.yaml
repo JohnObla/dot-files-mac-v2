@@ -29,6 +29,8 @@
     - brew install neovim
     - brew install ripgrep
     - brew install fd
+    - brew tap homebrew/cask-versions
+    - brew install --cask temurin
     - brew install n
     - n lts # node lts install
     - npm install --global all-the-package-names
