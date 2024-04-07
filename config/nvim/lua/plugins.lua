@@ -184,5 +184,7 @@ return {
   },
   -- show all shortcuts
   "folke/which-key.nvim",
+  -- s-expression manipulation
+  "guns/vim-sexp"
 }
 

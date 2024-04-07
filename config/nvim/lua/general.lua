@@ -1,5 +1,6 @@
 -- make space leader key
 vim.g.mapleader = " "
+vim.g.maplocalleader = "  "
 
 -- helper function - https://oroques.dev/notes/neovim-init/
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
