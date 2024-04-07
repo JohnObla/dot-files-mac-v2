@@ -13,6 +13,17 @@ wk.register({
   },
   g = {
     name = "Git mappings"
-  }
+  },
+  h = {
+    name = "Git Hunk mappings"
+  },
 }, { prefix = "<leader>" })
 
+wk.register({
+  ["["]= {
+    name = "Previous Navigate"
+  },
+  ["]"]= {
+    name = "Next Navigate"
+  },
+})

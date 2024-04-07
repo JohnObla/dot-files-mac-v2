@@ -147,11 +147,8 @@ return {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = true,
-    opts = {
-      start_in_insert = false,
-    },
     keys = {
-      { "<Esc>", [[<C-\><C-n>]], noremap = true, desc = "Return to normal mode", mode = "t" },
+      { "<C-Space>", [[<C-\><C-n>]], noremap = true, desc = "Return to normal mode", mode = "t" },
       { "<leader>tt", ":ToggleTerm<CR>", noremap = true, desc = "Toggle terminal horizontal" },
       { "<leader>ta", ":ToggleTermToggleAll<CR>", noremap = true, desc = "Toggle all terminals" },
       { "<leader>tf", ":TermSelect<CR>", noremap = true, desc = "Find specific terminal" },
@@ -168,11 +165,6 @@ return {
   -- show git blame commits
   {
     "f-person/git-blame.nvim",
-  },  -- easier way to navigate inside files
-  "easymotion/vim-easymotion",
-  -- show diff changes using colored bars
-  {
-    "lewis6991/gitsigns.nvim",
     config = true,
     opts = {
       -- disable by default
@@ -183,7 +175,12 @@ return {
     keys = {
       { "<leader>gb", ":GitBlameToggle<CR>", desc = "Toggle Git Blame" }
     }
-
+  },  -- easier way to navigate inside files
+  "easymotion/vim-easymotion",
+  -- show diff changes using colored bars
+  {
+    "lewis6991/gitsigns.nvim",
+    config = true,
   },
   -- show all shortcuts
   "folke/which-key.nvim",
