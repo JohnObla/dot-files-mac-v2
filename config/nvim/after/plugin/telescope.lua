@@ -34,4 +34,4 @@ end, { desc = "Search all files in repo of choice" })
 vim.keymap.set('n', '<leader>far', function()
   builtin.grep_string({ cwd = cwdFn(), search = vim.fn.input("Grep > ")});
 end, { desc = "Search for pattern in repo of choice" })
-
+vim.keymap.set('n', '<leader>fc', builtin.git_status, { desc = "Search through git changes" })
