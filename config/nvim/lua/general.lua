@@ -21,7 +21,7 @@ opt('o', 'swapfile', false)                           -- Allow file to be modifi
 opt('o', 'hidden', true)                              -- Enable modified buffers in background
 opt('o', 'ignorecase', true)                          -- Ignore case
 opt('o', 'joinspaces', false)                         -- No double spaces with join after a dot
-opt('o', 'scrolloff', 10 )                            -- Lines of context
+opt('o', 'scrolloff', 9999 )                            -- Lines of context
 opt('o', 'shiftround', true)                          -- Round indent
 opt('o', 'sidescrolloff', 8 )                         -- Columns of context
 opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
