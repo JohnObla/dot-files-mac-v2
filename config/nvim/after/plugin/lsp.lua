@@ -38,23 +38,3 @@ end)
 
 lsp.setup()
 
--- to learn how to use mason.nvim with lsp-zero
--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-require("mason").setup({})
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "lua_ls",
-    "rust_analyzer",
-    "tsserver",
-    "clojure_lsp",
-  },
-  automatic_installation = true,
-  handlers = {
-    lsp.default_setup,
-    clojure_lsp = function ()
-      require('lspconfig').clojure_lsp.setup({
-      })
-    end
-  },
-})
-

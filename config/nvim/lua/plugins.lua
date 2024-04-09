@@ -56,8 +56,28 @@ return {
     end,
   },
   -- mason allows lsp config within neovim itself
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
+  {
+    "williamboman/mason.nvim",
+    config = true,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function ()
+      local lsp = require("lsp-zero")
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "rust_analyzer",
+          "tsserver",
+          "clojure_lsp",
+        },
+        automatic_installation = true,
+        handlers = {
+          lsp.default_setup,
+        },
+      })
+    end
+  },
   -- lsp zero creates smart defaults for lsp config
   {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
   -- lsp config allows type checking, errors, etc with any language
