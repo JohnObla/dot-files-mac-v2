@@ -62,6 +62,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    dependencies = {"VonHeikemen/lsp-zero.nvim"},
     config = function ()
       local lsp = require("lsp-zero")
       require("mason-lspconfig").setup({
@@ -79,15 +80,52 @@ return {
     end
   },
   -- lsp zero creates smart defaults for lsp config
-  {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
-  -- lsp config allows type checking, errors, etc with any language
-  "neovim/nvim-lspconfig",
-  -- the plugins below all do snippets
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/nvim-cmp",
   {
-    "L3MON4D3/LuaSnip",
-    ft = {"lua"}
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    dependencies = {"neovim/nvim-lspconfig"},
+    config = function ()
+      local lsp = require("lsp-zero")
+      lsp.preset("recommended")
+      lsp.setup()
+      lsp.on_attach(function(client, bufnr)
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr, remap = false, desc = "Go to symbol definition" })
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = bufnr, remap = false, desc = "Symbol description" })
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false, desc = "Prev diagnostic" })
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false, desc = "Next diagnostic" })
+        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { buffer = bufnr, remap = false, desc = "Open diagnostics" })
+        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { buffer = bufnr, remap = false, desc = "Choose diagnostic fix" })
+        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { buffer = bufnr, remap = false, desc = "Rename symbol" })
+      end)
+
+    end
+  },
+  -- lsp config allows type checking, errors, etc with any language
+  -- the plugins below all do snippets
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "VonHeikemen/lsp-zero.nvim",
+      "L3MON4D3/LuaSnip",
+    },
+    config = function ()
+      local cmp = require("cmp")
+      local cmp_select = {behavior = cmp.SelectBehavior.Select}
+      local cmp_action = require('lsp-zero').cmp_action()
+
+      cmp.setup({
+        mapping = cmp.mapping.preset.insert({
+          ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+          ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
+          ["<Tab>"] = cmp_action.luasnip_supertab(),
+          ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+        })
+      })
+    end
   },
   -- manipulates brackets, speech marks, etc using neovim
   "tpope/vim-surround",
