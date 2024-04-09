@@ -65,7 +65,10 @@ return {
   -- the plugins below all do snippets
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
-  "L3MON4D3/LuaSnip",
+  {
+    "L3MON4D3/LuaSnip",
+    ft = {"lua"}
+  },
   -- manipulates brackets, speech marks, etc using neovim
   "tpope/vim-surround",
   -- allows the dot operator to work with plugins
@@ -238,7 +241,41 @@ return {
     config = true,
   },
   -- show all shortcuts
-  "folke/which-key.nvim",
+   {
+    "folke/which-key.nvim",
+    init = function ()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 800
+    end,
+    config = function ()
+      local wk = require("which-key")
+      wk.register({
+        f = {
+          name = "Telescope mappings",
+          a = { name = "Search in repo of choice" },
+          d = { name = "Search in dotfiles" },
+        },
+        t = {
+          name = "Terminal mappings",
+        },
+        g = {
+          name = "Git mappings"
+        },
+        h = {
+          name = "Git Hunk mappings"
+        },
+      }, { prefix = "<leader>" })
+
+      wk.register({
+        ["["]= {
+          name = "Previous Navigate"
+        },
+        ["]"]= {
+          name = "Next Navigate"
+        },
+      })
+    end
+   },
   -- s-expression manipulation
   "guns/vim-sexp"
 }
