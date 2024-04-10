@@ -335,7 +335,8 @@ return {
     end
    },
   -- s-expression manipulation
-  "guns/vim-sexp"
+  "guns/vim-sexp",
+  "tpope/vim-sexp-mappings-for-regular-people"
 }
 
 

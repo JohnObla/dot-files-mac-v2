@@ -29,6 +29,8 @@
     - brew install neovim
     - brew install ripgrep
     - brew install fd
+    - brew install wget
+    - brew install borkdude/brew/babashka
     - brew tap homebrew/cask-versions
     - brew install --cask temurin
     - brew install lazygit
