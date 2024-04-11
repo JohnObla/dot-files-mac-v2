@@ -10,7 +10,7 @@ return {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
-        config = function ()
+        config = function()
           require('telescope').load_extension('fzf')
         end
       },
@@ -21,7 +21,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = true,
-       opts = {
+    opts = {
       -- A list of parser names, or "all" (the listed parsers below should always be installed)
       ensure_installed = { "javascript", "typescript", "clojure", "c", "lua", "vim", "vimdoc", "query" },
 
@@ -42,7 +42,7 @@ return {
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-      additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = false,
       },
     }
   },
@@ -51,7 +51,7 @@ return {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       vim.cmd("colorscheme kanagawa-wave")
     end,
   },
@@ -62,8 +62,8 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    dependencies = {"VonHeikemen/lsp-zero.nvim"},
-    config = function ()
+    dependencies = { "VonHeikemen/lsp-zero.nvim" },
+    config = function()
       local lsp = require("lsp-zero")
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -83,21 +83,27 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
-    dependencies = {"neovim/nvim-lspconfig"},
-    config = function ()
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
       local lsp = require("lsp-zero")
       lsp.preset("recommended")
       lsp.setup()
       lsp.on_attach(function(client, bufnr)
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr, remap = false, desc = "Go to symbol definition" })
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = bufnr, remap = false, desc = "Symbol description" })
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false, desc = "Prev diagnostic" })
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false, desc = "Next diagnostic" })
-        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { buffer = bufnr, remap = false, desc = "Open diagnostics" })
-        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { buffer = bufnr, remap = false, desc = "Choose diagnostic fix" })
-        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { buffer = bufnr, remap = false, desc = "Rename symbol" })
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
+          { buffer = bufnr, remap = false, desc = "Go to symbol definition" })
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end,
+          { buffer = bufnr, remap = false, desc = "Symbol description" })
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end,
+          { buffer = bufnr, remap = false, desc = "Prev diagnostic" })
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end,
+          { buffer = bufnr, remap = false, desc = "Next diagnostic" })
+        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end,
+          { buffer = bufnr, remap = false, desc = "Open diagnostics" })
+        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end,
+          { buffer = bufnr, remap = false, desc = "Choose diagnostic fix" })
+        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end,
+          { buffer = bufnr, remap = false, desc = "Rename symbol" })
       end)
-
     end
   },
   -- lsp config allows type checking, errors, etc with any language
@@ -109,9 +115,9 @@ return {
       "VonHeikemen/lsp-zero.nvim",
       "L3MON4D3/LuaSnip",
     },
-    config = function ()
+    config = function()
       local cmp = require("cmp")
-      local cmp_select = {behavior = cmp.SelectBehavior.Select}
+      local cmp_select = { behavior = cmp.SelectBehavior.Select }
       local cmp_action = require('lsp-zero').cmp_action()
 
       cmp.setup({
@@ -140,7 +146,7 @@ return {
     config = true,
     keys = {
       { "\"",    mode = { "n", "v" }, desc = "Open register menu" },
-      { "<C-R>", mode = "i", desc = "Open register menu" }
+      { "<C-R>", mode = "i",          desc = "Open register menu" }
     },
     name = "registers",
   },
@@ -162,9 +168,9 @@ return {
   {
     "moll/vim-bbye",
     keys = {
-      { "<leader>q", ":Bdelete<CR>", desc = "Delete buffer but keep window" },
-      { "<leader>w", ":w<CR>", desc = "Save changes to buffer" },
-      { "<leader>Q", ":q<CR>", desc = "Close window but keep buffer" },
+      { "<leader>q", ":Bdelete<CR>",             desc = "Delete buffer but keep window" },
+      { "<leader>w", ":LspZeroFormat<CR>:w<CR>", desc = "Save changes to buffer and formats buffer" },
+      { "<leader>Q", ":q<CR>",                   desc = "Close window but keep buffer" },
     }
   },
   -- using git inside of neovim
@@ -216,7 +222,7 @@ return {
         ignore = false,
       }
     },
-    init = function ()
+    init = function()
       -- disable netrw at the very start of init.lua
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
@@ -230,10 +236,10 @@ return {
     version = "*",
     config = true,
     keys = {
-      { "<C-Space>", [[<C-\><C-n>]], noremap = true, desc = "Return to normal mode", mode = "t" },
-      { "<leader>tt", ":ToggleTerm<CR>", noremap = true, desc = "Toggle terminal horizontal" },
+      { "<C-Space>",  [[<C-\><C-n>]],             noremap = true, desc = "Return to normal mode",     mode = "t" },
+      { "<leader>tt", ":ToggleTerm<CR>",          noremap = true, desc = "Toggle terminal horizontal" },
       { "<leader>ta", ":ToggleTermToggleAll<CR>", noremap = true, desc = "Toggle all terminals" },
-      { "<leader>tf", ":TermSelect<CR>", noremap = true, desc = "Find specific terminal" },
+      { "<leader>tf", ":TermSelect<CR>",          noremap = true, desc = "Find specific terminal" },
     }
   },
   -- status line at bottom of window
@@ -243,10 +249,10 @@ return {
     config = true,
     opts = {
       sections = {
-        lualine_c = { {'filename', path = 1} },
+        lualine_c = { { 'filename', path = 1 } },
       },
       inactive_sections = {
-        lualine_c = { {'filename', path = 1} },
+        lualine_c = { { 'filename', path = 1 } },
       },
     }
   },
@@ -256,26 +262,29 @@ return {
     ft = { "clojure", "fennel" },
     -- [Optional] cmp-conjure for cmp
     dependencies = {
-        {
-          "PaterJason/cmp-conjure",
-          config = function()
-            local cmp = require("cmp")
-            local config = cmp.get_config()
-            table.insert(config.sources, {
-              name = "buffer",
-              option = {
-                sources = {
-                  { name = "conjure" },
-                },
+      {
+        "PaterJason/cmp-conjure",
+        config = function()
+          local cmp = require("cmp")
+          local config = cmp.get_config()
+          table.insert(config.sources, {
+            name = "buffer",
+            option = {
+              sources = {
+                { name = "conjure" },
               },
-            })
-            cmp.setup(config)
-          end,
-        },
+            },
+          })
+          cmp.setup(config)
+        end,
+      },
     },
+    init = function()
+      vim.g["conjure#mapping#doc_word"] = "gk"
+    end,
     config = function(_, opts)
-        require("conjure.main").main()
-        require("conjure.mapping")["on-filetype"]()
+      require("conjure.main").main()
+      require("conjure.mapping")["on-filetype"]()
     end,
   },
   -- show git blame commits
@@ -291,7 +300,7 @@ return {
     keys = {
       { "<leader>gb", ":GitBlameToggle<CR>", desc = "Toggle Git Blame" }
     }
-  },  -- easier way to navigate inside files
+  }, -- easier way to navigate inside files
   "easymotion/vim-easymotion",
   -- show diff changes using colored bars
   {
@@ -299,13 +308,13 @@ return {
     config = true,
   },
   -- show all shortcuts
-   {
+  {
     "folke/which-key.nvim",
-    init = function ()
+    init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 800
     end,
-    config = function ()
+    config = function()
       local wk = require("which-key")
       wk.register({
         f = {
@@ -325,19 +334,22 @@ return {
       }, { prefix = "<leader>" })
 
       wk.register({
-        ["["]= {
+        ["["] = {
           name = "Previous Navigate"
         },
-        ["]"]= {
+        ["]"] = {
           name = "Next Navigate"
         },
       })
     end
-   },
+  },
   -- s-expression manipulation
-  "guns/vim-sexp",
+  {
+    "guns/vim-sexp",
+    init = function()
+      vim.g.sexp_enable_insert_mode_mappings = 0
+    end
+
+  },
   "tpope/vim-sexp-mappings-for-regular-people"
 }
-
-
-
