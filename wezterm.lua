@@ -12,6 +12,10 @@ config.window_padding = {
   bottom = 0,
 }
 
+
+config.send_composed_key_when_left_alt_is_pressed = true
+config.send_composed_key_when_right_alt_is_pressed = true
+
+
 -- and finally, return the configuration to wezterm
 return config
-
