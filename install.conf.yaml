@@ -38,6 +38,6 @@
         diff-so-fancy
         neovim
     -
-      description: Login to GitHub CLI
-      command: gh auth login --git-protocol=ssh --web
+      description: Login to GitHub CLI if not logged in already
+      command: ~/.dotfiles/scripts/github_auth_check.sh
 
