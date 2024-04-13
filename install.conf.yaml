@@ -15,6 +15,7 @@
     ~/.zprofile:
     ~/.zshrc:
     ~/.wezterm.lua:
+    ~/.Brewfile:
 
 - shell:
     -
@@ -23,24 +24,20 @@
     -
       description: Add homebrew to path
       command: eval "$(/opt/homebrew/bin/brew shellenv)"
-    - brew install --cask --force google-chrome # --force to make command idempotent
-    - brew install --cask --force wezterm
-    - brew install fish
-    - brew install neovim
-    - brew install ripgrep
-    - brew install fd
-    - brew install wget
-    - brew install borkdude/brew/babashka
-    - brew tap homebrew/cask-versions
-    - brew install --cask temurin
-    - brew install lazygit
-    - brew install n
-    - n lts # node lts install
-    - npm install --global all-the-package-names
-    - npm install --global yarn
-    - npm install --global diff-so-fancy
-    - npm install --global neovim
-    - brew install gh
-    - brew install brew install clojure/tools/clojure
-    - gh auth login --git-protocol=ssh --web
+    -
+      description: Install homebrew packages
+      command: brew bundle install --global
+    -
+      description: Install latest node
+      command: n lts
+    -
+      description: Install npm packages
+      command: npm install --global
+        all-the-package-names
+        yarn
+        diff-so-fancy
+        neovim
+    -
+      description: Login to GitHub CLI
+      command: gh auth login --git-protocol=ssh --web
 
