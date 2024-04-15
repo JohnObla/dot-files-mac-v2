@@ -114,11 +114,18 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "VonHeikemen/lsp-zero.nvim",
       "L3MON4D3/LuaSnip",
+      "windwp/nvim-autopairs",
     },
     config = function()
       local cmp = require("cmp")
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
       local cmp_action = require('lsp-zero').cmp_action()
+
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
@@ -138,7 +145,16 @@ return {
   -- allows the dot operator to work with plugins
   "tpope/vim-repeat",
   -- automatically adds closing brackets, speech marks, etc.
-  "jiangmiao/auto-pairs",
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function()
+      local lisp_types = { "scheme", "lisp", "clojure", "fennel" }
+      require("nvim-autopairs").setup {}
+      require("nvim-autopairs").get_rules("'")[1].not_filetypes = lisp_types
+      require("nvim-autopairs").get_rules("`")[1].not_filetypes = lisp_types
+    end
+  },
   -- ui for working with copy and paste registers
   {
     "tversteeg/registers.nvim",
