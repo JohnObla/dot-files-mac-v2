@@ -150,7 +150,9 @@ return {
     event = "InsertEnter",
     config = function()
       local lisp_types = { "scheme", "lisp", "clojure", "fennel" }
-      require("nvim-autopairs").setup {}
+      require("nvim-autopairs").setup {
+        enable_check_bracket_line = false
+      }
       require("nvim-autopairs").get_rules("'")[1].not_filetypes = lisp_types
       require("nvim-autopairs").get_rules("`")[1].not_filetypes = lisp_types
     end
