@@ -1,8 +1,10 @@
-# create n location and add to path
-export N_PREFIX=$HOME/n
-path+=("$HOME/n/bin")
+# Create n location and add to path
+export N_PREFIX="$HOME/n"
+path+=("$N_PREFIX/bin")
 
-# add brew to path
-path+=("/opt/homebrew/bin")
-# add alt for intel chip mac
-path+=("/usr/local/bin")
+# Add Homebrew to path based on architecture
+if [[ "$(uname -m)" == "arm64" ]]; then
+  path+=("/opt/homebrew/bin")  # Apple Silicon (M1/M2)
+else
+  path+=("/usr/local/bin")  # Intel Macs
+fi
