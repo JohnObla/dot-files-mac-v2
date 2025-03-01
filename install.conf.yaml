@@ -18,26 +18,29 @@
     ~/.Brewfile:
 
 - shell:
-    -
-      description: Install homebrew
+    - description: Install Homebrew
       command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    -
-      description: Add homebrew to path
-      command: eval "$(/opt/homebrew/bin/brew shellenv)"
-    -
-      description: Install homebrew packages
-      command: brew bundle install --global
-    -
-      description: Install latest node
-      command: n lts
-    -
-      description: Install npm packages
-      command: npm install --global
-        all-the-package-names
-        yarn
-        diff-so-fancy
-        neovim
-    -
-      description: Login to GitHub CLI if not logged in already
-      command: ~/.dotfiles/scripts/github_auth_check.sh
 
+    - description: Detect architecture and set Homebrew path
+      command: |
+        if [[ "$(uname -m)" == "arm64" ]]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        else
+          eval "$(/usr/local/bin/brew shellenv)"
+        fi
+
+    - description: Install Homebrew packages
+      command: brew bundle install --global
+
+    - description: Install latest Node.js
+      command: n lts
+
+    - description: Install npm packages
+      command: npm install --global \
+        all-the-package-names \
+        yarn \
+        diff-so-fancy \
+        neovim
+
+    - description: Login to GitHub CLI if not logged in already
+      command: ~/.dotfiles/scripts/github_auth_check.sh
