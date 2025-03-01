@@ -268,8 +268,8 @@ return {
     version = "*",
     config = true,
     keys = {
-      { "<C-Space>",  [[<C-\><C-n>]],             noremap = true, desc = "Return to normal mode",     mode = "t" },
-      { "<leader>tt", ":ToggleTerm<CR>",          noremap = true, desc = "Toggle terminal horizontal" },
+      { "<C-Space>",  [[<C-\><C-n>]],             noremap = true, desc = "Return to normal mode",                mode = "t" },
+      { "<leader>tt", ":ToggleTerm ",             noremap = true, desc = "Create new terminal or go to existing" },
       { "<leader>ta", ":ToggleTermToggleAll<CR>", noremap = true, desc = "Toggle all terminals" },
       { "<leader>tf", ":TermSelect<CR>",          noremap = true, desc = "Find specific terminal" },
     }
