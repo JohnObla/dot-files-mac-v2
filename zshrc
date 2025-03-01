@@ -4,3 +4,5 @@ path+=("$HOME/n/bin")
 
 # add brew to path
 path+=("/opt/homebrew/bin")
+# add alt for intel chip mac
+path+=("/usr/local/bin")
