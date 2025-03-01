@@ -40,7 +40,8 @@
         all-the-package-names \
         yarn \
         diff-so-fancy \
-        neovim
+        neovim \
+        tree-sitter-cli
 
     - description: Login to GitHub CLI if not logged in already
       command: ~/.dotfiles/scripts/github_auth_check.sh

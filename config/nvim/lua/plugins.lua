@@ -69,7 +69,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "rust_analyzer",
-          "tsserver",
+          "ts_ls",
           "clojure_lsp",
         },
         automatic_installation = true,
@@ -87,6 +87,19 @@ return {
     config = function()
       local lsp = require("lsp-zero")
       lsp.preset("recommended")
+
+      lsp.format_on_save({
+        format_opts = {
+          async = false,
+        },
+        servers = {
+          ["lua_ls"] = { "lua" },
+          ["ts_ls"] = { "javascript", "typescript" },
+          ["pyright"] = { "python" },
+          ["gopls"] = { "go" },
+        }
+      })
+
       lsp.setup()
       lsp.on_attach(function(client, bufnr)
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
@@ -106,6 +119,7 @@ return {
       end)
     end
   },
+
   -- lsp config allows type checking, errors, etc with any language
   -- the plugins below all do snippets
   {
@@ -186,9 +200,9 @@ return {
   {
     "moll/vim-bbye",
     keys = {
-      { "<leader>q", ":Bdelete<CR>",             desc = "Delete buffer but keep window" },
-      { "<leader>w", ":LspZeroFormat<CR>:w<CR>", desc = "Save changes to buffer and formats buffer" },
-      { "<leader>Q", ":q<CR>",                   desc = "Close window but keep buffer" },
+      { "<leader>q", ":Bdelete<CR>", desc = "Delete buffer but keep window" },
+      { "<leader>w", ":w<CR>",       desc = "Save changes to buffer and formats buffer" },
+      { "<leader>Q", ":q<CR>",       desc = "Close window but keep buffer" },
     }
   },
   -- using git inside of neovim
