@@ -1,4 +1,3 @@
-tap "homebrew/cask"
 cask_args force: true
 
 cask "google-chrome"
