@@ -7,3 +7,5 @@ config/clojure/.*
 .nrepl-port
 .lsp
 
+# colima junk
+config/colima

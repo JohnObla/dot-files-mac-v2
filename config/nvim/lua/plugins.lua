@@ -23,7 +23,7 @@ return {
     config = true,
     opts = {
       -- A list of parser names, or "all" (the listed parsers below should always be installed)
-      ensure_installed = { "javascript", "typescript", "clojure", "c", "lua", "vim", "vimdoc", "query" },
+      ensure_installed = { "javascript", "typescript", "clojure", "c", "lua", "vim", "vimdoc", "query", "sql", "html", "css" },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
@@ -71,6 +71,11 @@ return {
           "rust_analyzer",
           "ts_ls",
           "clojure_lsp",
+          "jsonls",
+          "sqlls",
+          "html",
+          "cssls",
+          "eslint"
         },
         automatic_installation = true,
         handlers = {
@@ -97,6 +102,11 @@ return {
           ["ts_ls"] = { "javascript", "typescript" },
           ["pyright"] = { "python" },
           ["gopls"] = { "go" },
+          ["jsonls"] = { "json" },
+          ["sqlls"] = { "sql" },
+          ["html"] = { "html" },
+          ["cssls"] = { "css" },
+          ["eslint"] = { "eslint" }
         }
       })
 

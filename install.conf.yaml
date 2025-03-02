@@ -41,7 +41,9 @@
         yarn \
         diff-so-fancy \
         neovim \
-        tree-sitter-cli
+        tree-sitter-cli \
+        npm i -g sql-language-server
+
 
     - description: Login to GitHub CLI if not logged in already
       command: ~/.dotfiles/scripts/github_auth_check.sh
