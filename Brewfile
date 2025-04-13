@@ -5,6 +5,7 @@ cask "wezterm"
 cask "temurin"
 cask "another-redis-desktop-manager"
 cask "pgadmin4"
+cask "insomnia"
 
 brew "fish"
 brew "neovim"

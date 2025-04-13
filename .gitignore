@@ -9,3 +9,5 @@ config/clojure/.*
 
 # colima junk
 config/colima
+
+**/node_modules

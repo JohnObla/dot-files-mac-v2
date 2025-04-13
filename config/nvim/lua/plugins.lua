@@ -99,14 +99,15 @@ return {
         },
         servers = {
           ["lua_ls"] = { "lua" },
-          ["ts_ls"] = { "javascript", "typescript" },
+          ["ts_ls"] = { "javascript", "typescript", "typescriptreact" },
           ["pyright"] = { "python" },
           ["gopls"] = { "go" },
           ["jsonls"] = { "json" },
           ["sqlls"] = { "sql" },
           ["html"] = { "html" },
           ["cssls"] = { "css" },
-          ["eslint"] = { "eslint" }
+          ["eslint"] = { "eslint" },
+          ["clojure_lsp"] = { "clojure" }
         }
       })
 
