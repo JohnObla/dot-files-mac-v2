@@ -23,7 +23,7 @@ return {
     config = true,
     opts = {
       -- A list of parser names, or "all" (the listed parsers below should always be installed)
-      ensure_installed = { "javascript", "typescript", "clojure", "c", "lua", "vim", "vimdoc", "query", "sql", "html", "css" },
+      ensure_installed = { "javascript", "typescript", "clojure", "c", "lua", "vim", "vimdoc", "query", "sql", "html", "css", "ruby" },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
@@ -107,7 +107,8 @@ return {
           ["html"] = { "html" },
           ["cssls"] = { "css" },
           ["eslint"] = { "eslint" },
-          ["clojure_lsp"] = { "clojure" }
+          ["clojure_lsp"] = { "clojure" },
+          ["ruby_lsp"] = { "ruby" }
         }
       })
 
