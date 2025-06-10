@@ -19,3 +19,6 @@ fish_add_path $N_PREFIX/bin
 
 # set config home
 set -gx XDG_CONFIG_HOME $HOME/.config
+
+# Added by `rbenv init` on Fri  9 May 2025 23:50:30 BST
+status --is-interactive; and rbenv init - --no-rehash fish | source
