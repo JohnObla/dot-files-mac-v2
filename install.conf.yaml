@@ -16,6 +16,7 @@
     ~/.zshrc:
     ~/.wezterm.lua:
     ~/.Brewfile:
+    ~/.docker:
 
 - shell:
     - description: Install Homebrew
