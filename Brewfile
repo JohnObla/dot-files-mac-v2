@@ -8,6 +8,7 @@ cask "pgadmin4"
 cask "insomnia"
 cask "obsidian"
 cask "cursor"
+cask "1password"
 
 brew "fish"
 brew "neovim"
