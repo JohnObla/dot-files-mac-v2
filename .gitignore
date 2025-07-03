@@ -11,3 +11,7 @@ config/clojure/.*
 config/colima
 
 **/node_modules
+
+# docker contexts with machine-specific files
+docker/contexts*/**
+
