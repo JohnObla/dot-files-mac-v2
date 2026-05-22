@@ -1,4 +1,4 @@
--- plugins install
+-- plugins install via lazy.nvim (use :Lazy)
 return {
   -- search text through neovim, including files, ripgreps, buffers, and help articles
   {

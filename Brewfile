@@ -8,7 +8,7 @@ cask "pgadmin4"
 cask "insomnia"
 cask "obsidian"
 cask "cursor"
-cask "1password"
+cask "1password@beta"
 cask "claude-code"
 
 brew "fish"
@@ -28,3 +28,8 @@ brew "rbenv"
 brew "uv"
 brew "ollama"
 brew "direnv"
+brew "mkcert"
+
+# multi agent orchestration
+brew "beads"
+brew "gastown"

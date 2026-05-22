@@ -43,7 +43,7 @@
         diff-so-fancy \
         neovim \
         tree-sitter-cli \
-        npm i -g sql-language-server
+        sql-language-server \
 
 
     - description: Login to GitHub CLI if not logged in already

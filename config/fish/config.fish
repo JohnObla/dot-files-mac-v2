@@ -23,7 +23,10 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 # Added by `rbenv init` on Fri  9 May 2025 23:50:30 BST
 status --is-interactive; and rbenv init - --no-rehash fish | source
 
-# add to end of fish config Add a 301 redirect so users in Canada are served fr-CA, rather than the fr-FR that they're being served now?
+# add to end of fish config
 # hooks direnv into shell
 direnv hook fish | source
 
+
+# uv
+fish_add_path "/Users/johnobla/.local/bin"
