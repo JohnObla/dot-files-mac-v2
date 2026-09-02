@@ -8,3 +8,7 @@ if [[ "$(uname -m)" == "arm64" ]]; then
 else
   path+=("/usr/local/bin")  # Intel Macs
 fi
+
+# --- Gas Town Integration (managed by gt) ---
+[[ -f "/Users/johnobla/.config/gastown/shell-hook.sh" ]] && source "/Users/johnobla/.config/gastown/shell-hook.sh"
+# --- End Gas Town ---

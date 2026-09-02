@@ -1,0 +1,5 @@
+[[index]]
+name = 'artifactory'
+url = 'https://johnobla:AP8jAbMqdnMPiquo9jRfQE4WNbZ@artifactory.skyscannertools.net/artifactory/api/pypi/pypi/simple'
+default = true
+authenticate = 'always'

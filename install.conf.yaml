@@ -44,6 +44,7 @@
         neovim \
         tree-sitter-cli \
         sql-language-server \
+        shadow-cljs \
 
 
     - description: Login to GitHub CLI if not logged in already
