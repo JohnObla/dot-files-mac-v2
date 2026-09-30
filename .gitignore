@@ -13,14 +13,14 @@ config/colima
 **/node_modules
 
 # docker contexts with machine-specific files
-docker/contexts*/**
+docker
 
 # logs
 .copilot
 
 # company mandated software
-config/betterleaks
-config/git/hooks
+config/opencode
 
 # latest device data
 op
+

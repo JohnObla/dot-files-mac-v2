@@ -29,4 +29,8 @@ direnv hook fish | source
 
 
 # uv
-fish_add_path "/Users/johnobla/.local/bin"
+fish_add_path $HOME/.local/bin
+
+# opencode
+fish_add_path $HOME/.opencode/bin
+

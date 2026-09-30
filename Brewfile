@@ -9,7 +9,6 @@ cask "insomnia"
 cask "obsidian"
 cask "cursor"
 cask "1password@beta"
-cask "claude-code"
 
 brew "fish"
 brew "neovim"
